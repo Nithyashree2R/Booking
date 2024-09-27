@@ -11,27 +11,27 @@
           crossorigin="anonymous">
     <style>
         body {
-    background-color: pink;
-    font-size: 20px;
-    background-image: url("{{url_for('static',filename='images/1.jpg')}}"); /* Background image */
-    background-size: cover; /* Cover the entire viewport */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Prevent the image from repeating */
-}
+            background-color: pink;
+            font-size: 20px;
+            background-image: url("{{url_for('static',filename='images/1.jpg')}}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
 
-       
         .navbar {
-            background-color: #19dfce; /* Rich color */
+            background-color: #19dfce;
         }
         .navbar-nav .nav-link {
-            color: white; /* White text */
-            font-weight: bold; /* Bold text */
+            color: white;
+            font-weight: bold;
             transition: color 0.3s;
         }
         .navbar-nav .nav-link:hover {
-            color: #ffd700; /* Gold color on hover */
+            color: #ffd700;
         }
         .login-container {
+            display: none; /* Initially hidden */
             position: absolute;
             top: 70%;
             left: 50%;
@@ -44,26 +44,26 @@
             width: 280px;
             max-width: 90%;
         }
-        /* Change color for headings */
-#appointment h1 {
-    color: #f4fafa; /* Change this to your desired color */
-}
 
-#appointment .form-label {
-    color: #ebebeb; /* Change this to your desired color */
-}
+        #appointment h1 {
+            color: #f4fafa;
+        }
 
-/* Change color for input fields */
-#appointment .form-control {
-    border-color: #1976d2; /* Change this to your desired border color */
-}
+        #appointment .form-label {
+            color: #ebebeb;
+        }
 
-/* Change color for the input field text */
-#appointment .form-control:focus {
-    border-color: #1976d2; /* Change this to your desired focus color */
-    box-shadow: 0 0 5px rgba(25, 118, 210, 0.5); /* Optional: Add a glow effect */
-}
+        #appointment .form-control {
+            border-color: #1976d2;
+        }
 
+        #appointment .form-control:focus {
+            border-color: #1976d2;
+            box-shadow: 0 0 5px rgba(25, 118, 210, 0.5);
+        }
+        .col1{
+      background-color: #19dfce;
+      
     </style>
 </head>
 
@@ -78,7 +78,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#loginContainer">Admin</a> <!-- Link to login container -->
+                        <a class="nav-link" href="#" onclick="toggleLoginContainer()">Admin</a> <!-- Link to toggle login -->
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="#appointment">Booking</a>
@@ -94,7 +94,6 @@
         <div class="login-container" id="loginContainer"><br>
             <h1>Admin Login</h1>
             <form action="/login" method="POST">
-                
                 <div class="mb-3">
                     <label for="username" class="form-label">USERNAME</label>
                     <input type="text" class="form-control" name="username" required>
@@ -106,7 +105,6 @@
                 <button type="submit" class="btn btn-success w-100">LOG IN</button>
             </form>
             <br>
-            <a href="{{ url_for('index') }}" class="btn btn-danger w-100">Back to main page</a>
         </div>
     </div>
 
@@ -149,6 +147,16 @@
             const today = new Date().toISOString().split('T')[0];
             document.getElementById('date').setAttribute('min', today);
         }
+
+        function toggleLoginContainer() {
+            const loginContainer = document.getElementById('loginContainer');
+            loginContainer.style.display = (loginContainer.style.display === 'none' || loginContainer.style.display === '') ? 'block' : 'none';
+        }
     </script>
+    <footer class="col1 text-white text-center py-3">
+        <p> @ Building Contracts. All Rights Reserved.<br> NITHYASHREE R</br></p>
+      
+      </footer>
+      
 </body>
 </html>
